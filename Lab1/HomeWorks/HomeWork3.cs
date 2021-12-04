@@ -1,3 +1,4 @@
+using System;
 namespace Lab1.HomeWorks
 {
     /// <summary>
@@ -15,7 +16,28 @@ namespace Lab1.HomeWorks
         /// <returns>Результат вычисления</returns>
         public static double Calculator(double x, double y, char mathOperation = '+')
         {
-            throw new System.Exception("Не реализован калькулятор");
+            double temp = 0;
+           
+                switch (mathOperation)
+                {
+                    case '+': temp = x + y; break;
+                    case '-': temp = x - y; break;
+                    case '*': temp = x * y; break;
+                    
+                    case ')': throw new Exception();
+                    case '/': if (y == 0)
+                    {
+                        throw new Exception();
+                    }
+                    else
+                    {
+                        temp = x / y; break;
+                    }
+               
+                }
+                return temp;
+            
+
         }
     }
 }
