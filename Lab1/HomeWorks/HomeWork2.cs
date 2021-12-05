@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 namespace Lab1.HomeWorks
 {
     /// <summary>
@@ -45,34 +46,21 @@ namespace Lab1.HomeWorks
         /// </summary>
         /// <param name="temp">Исходный массив строк</param>
         /// <returns>Слово состоящее только из цифр.</returns>
-        public static string[] Variant2(string[] temp)
+        public static string Variant2(string[] temp)
         {
-            string stroka1 = "";
+            
+            string? stroka1 = null;
             foreach (string stroka in temp)
             {
                 bool isNumeric = int.TryParse(stroka, out _);
                 if (isNumeric)
                 {
-                    stroka1 += stroka + " ";
+                    stroka1 = stroka;
                 }
+                
             }
-            return stroka1.Split(" ");
+            return stroka1;
             
-            
-            //string stroka = "";
-            //for (int i = 0; i < temp.Length; i++)
-            //{
-            //    stroka = temp[i];
-            //   // foreach (char x in stroka)
-            //    //{
-            //    int n;
-            //    bool isNumeric = int.TryParse(stroka, out n);
-            //       // if (x > '0' || x < '9')
-            //            return stroka;
-                    
-            //    }
-            //}
-            ////return stroka;
         }
     }
 }

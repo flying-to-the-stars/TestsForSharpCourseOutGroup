@@ -15,36 +15,74 @@ namespace Lab1.HomeWorks
         /// <returns>Массив в котором поменяны местами максимальный отрицательный элемент и минимальный положительный</returns>
         public static int[] Variant1(int[] temp)
         {
-            int min_value = temp[0];
-            int min_positive_value = temp[0];
-            int min_index = 0;
-            int min_positive_index = 0;
+            int min_value = 0;
+            int min_value_index = 0;
+            int min_positive_value = 0;
+            int min_positive_value_index = 0;
+
             for (int i = 0; i < temp.Length; i++)
             {
-                if (temp[i] > 0 & temp[i] < min_positive_value)
+                if (temp[i] < 0)
                 {
-                    min_positive_value = temp[i];
-                    min_positive_index = i;
+                    if (min_value == 0)
+                    {
+                        min_value = temp[i];
+                        min_value_index = i;
+                    }
+                    else if (temp[i] < min_value)
+                    {
+                        min_value = temp[i];
+                        min_value_index = i;
+                    }
                 }
-                if (temp[i] < 0 & Math.Abs(min_value) < Math.Abs(temp[i]))
+
+                if (temp[i] > 0)
                 {
-                    min_value = temp[i];
-                    min_index = i;
+                    if (min_positive_value == 0)
+                    {
+                        min_positive_value = temp[i];
+                        min_positive_value_index = i;
+                    }
+                    else if (temp[i] < min_positive_value)
+                    {
+                        min_positive_value = temp[i];
+                        min_positive_value_index = i;
+                    }
                 }
-                
             }
-            
-            temp[min_index] = min_positive_value;
-            temp[min_positive_index] = min_value;
-            return temp;
+
+            int[] newArray = new int[temp.Length];
+
+            for (int i = 0; i < newArray.Length; i++)
+            {
+                if (min_value == 0 || min_positive_value == 0)
+                {
+                    return temp;
+                }
+                if (i == min_value_index)
+                {
+                    newArray[i] = min_positive_value;
+                }
+                else if (i == min_positive_value_index)
+                {
+                    newArray[i] = min_value;
+                }
+                else
+                {
+                    newArray[i] = temp[i];
+                }
+            }
+
+            return newArray;
         }
 
-            /// <summary>
-            /// В массиве целых чисел определить сумму элементов, стоящих на чётных позициях
-            /// </summary>
-            /// <param name="temp">Исходный массив</param>
-            /// <returns>Сумма элементов, состоящих на чётных позициях массива</returns>
-            public static int Variant2(int[] temp)
+
+        /// <summary>
+        /// В массиве целых чисел определить сумму элементов, стоящих на чётных позициях
+        /// </summary>
+        /// <param name="temp">Исходный массив</param>
+        /// <returns>Сумма элементов, состоящих на чётных позициях массива</returns>
+        public static int Variant2(int[] temp)
             {
                 int sum1 = 0;
                 for (int i = 0; i<temp.Length; i++)

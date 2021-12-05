@@ -13,7 +13,7 @@ namespace Lab1.Tests
 
         [TestCase(new string[] { "maxString", "111", "hi", "five", "two" }, "111")]
         [TestCase(new string[] { "maxString", "temp", "hi", "five", "two" }, null)]
-        [TestCase(new string[] { "maxString", "111", "hi", "444", "two" }, "111", "444")]
+        [TestCase(new string[] { "maxString", "111", "hi", "444", "two" }, "444")]
         
         public void TestForVariant2(string[] temp, string result) => Assert.AreEqual(HomeWorks.HomeWork2.Variant2(temp), result, "Метод возвращает не верное значение");
     }
